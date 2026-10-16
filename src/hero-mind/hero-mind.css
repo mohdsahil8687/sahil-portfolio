@@ -1,0 +1,19 @@
+/* Preserve the existing artwork footprint and surrounding layout rules. */
+.hero-artwork.hmj-artwork{transform:none;min-width:0;width:100%}
+.hic-visual{position:absolute;inset:30px 0 24px;min-width:0;isolation:isolate;overflow:hidden;cursor:auto;contain:paint;perspective:1100px}
+.hic-atmosphere{position:absolute;inset:5%;pointer-events:none;background:radial-gradient(ellipse at 50% 43%,#dcc6a20c,transparent 62%),radial-gradient(ellipse at 63% 55%,#858e9a0b,transparent 65%);filter:blur(14px)}
+.hic-sculpture{position:absolute;inset:0;transform-style:preserve-3d;animation:hic-idle 15s ease-in-out infinite;pointer-events:none}
+.hic-still{position:absolute;inset:0;display:block;width:100%;height:100%;pointer-events:none;transform:rotateX(var(--hic-tilt-x,0deg)) rotateY(var(--hic-tilt-y,0deg));transform-style:preserve-3d;transform-origin:center;transition:transform .8s cubic-bezier(.2,.72,.2,1),filter .7s ease}
+.hic-still circle{transition:transform .85s cubic-bezier(.2,.72,.2,1),opacity .7s;transform-box:fill-box;transform-origin:center}
+.hic-interacting .hic-still{filter:drop-shadow(0 0 12px #dcc6a24d)}
+.hic-interacting .hic-still circle{transform:translate(var(--hic-dx),var(--hic-dy));opacity:.95}
+.hic-sculpture:after{content:'';position:absolute;inset:17% 18%;pointer-events:none;background:radial-gradient(circle at var(--hic-light-x,50%) var(--hic-light-y,45%),#f1e8d822,transparent 53%);mix-blend-mode:screen;opacity:0;transition:opacity .55s ease}
+.hic-interacting .hic-sculpture:after{opacity:1}
+.hic-words{position:absolute;inset:0;pointer-events:none}
+.hic-words span{position:absolute;color:#dcc6a2;font:600 9px 'DM Sans',sans-serif;letter-spacing:.13em;text-transform:uppercase;text-shadow:0 0 9px #dcc6a280;opacity:0;transform:translateY(6px);transition:opacity .5s ease,transform .65s cubic-bezier(.2,.72,.2,1)}
+.hic-words span:nth-child(1){left:20%;top:32%}.hic-words span:nth-child(2){right:14%;top:23%}.hic-words span:nth-child(3){right:8%;top:59%}.hic-words span:nth-child(4){left:12%;top:65%}.hic-words span:nth-child(5){left:38%;top:77%}
+.hic-interacting .hic-words span{opacity:.78;transform:translateY(0)}
+.hic-interacting .hic-words span:nth-child(2){transition-delay:.04s}.hic-interacting .hic-words span:nth-child(3){transition-delay:.08s}.hic-interacting .hic-words span:nth-child(4){transition-delay:.12s}.hic-interacting .hic-words span:nth-child(5){transition-delay:.16s}
+@keyframes hic-idle{0%,100%{transform:translateY(0) rotateY(0deg) rotateZ(0deg)}50%{transform:translateY(-6px) rotateY(2deg) rotateZ(.6deg)}}
+@media(max-width:600px){.hic-visual{inset:30px 0 40px}}
+@media(prefers-reduced-motion:reduce){.hic-sculpture{animation:none}.hic-still,.hic-still circle,.hic-sculpture:after,.hic-words span{transition:none!important;transform:none!important}.hic-interacting .hic-words span{opacity:0}.hic-interacting .hic-sculpture:after{opacity:0}}

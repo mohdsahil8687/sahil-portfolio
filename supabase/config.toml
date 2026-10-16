@@ -1,0 +1,6 @@
+project_id = "sahil-portfolio"
+
+[functions.portfolio-api]
+# Every privileged action validates its bearer token with Auth and checks is_admin.
+# Anonymous contact/consented analytics require their own validation and rate limits.
+verify_jwt = false

@@ -1,0 +1,36 @@
+/* The original mf-brand-visual / mf-brand-scene rules still own width, height and breakpoints. */
+.ff-visual{isolation:isolate;overflow:hidden;border-radius:0;cursor:auto;contain:paint}
+.ff-visual .ff-stage{overflow:hidden;animation:none;perspective:900px}
+.ff-halo{position:absolute;inset:4% 10%;background:radial-gradient(ellipse,#dcc6a212,transparent 64%);pointer-events:none;animation:ff-breathe 8s ease-in-out infinite}
+.ff-shadow{position:absolute;width:42%;height:9%;left:29%;bottom:7%;border-radius:50%;background:radial-gradient(ellipse,#0005,transparent 72%);transform:scaleX(1.2);opacity:.6}
+.ff-atmosphere{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.ff-orbits{stroke:#dcc6a2;stroke-opacity:.13;stroke-width:.6;transform-origin:220px 155px;animation:ff-orbit-drift 24s ease-in-out infinite alternate}
+.ff-trails{stroke-width:.85;stroke-dasharray:22 220;animation:ff-data-flow 15s linear infinite;opacity:calc(.4 + var(--ff-open,0)*.4)}
+.ff-type{fill:#a2a7af;fill-opacity:.62;font:5.5px 'DM Sans',sans-serif;letter-spacing:1.5px}
+.ff-sculpture{position:absolute;width:min(67%,280px);aspect-ratio:1;left:50%;top:49%;transform:translate(-50%,-50%) perspective(900px) rotateX(var(--ff-rx,0deg)) rotateY(var(--ff-ry,0deg)) scale(var(--ff-scale,1));transform-style:preserve-3d;pointer-events:none}
+.ff-drift{position:absolute;inset:0;transform-style:preserve-3d;animation:ff-sculpture-drift 17s ease-in-out infinite}
+.ff-iris{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(18deg) rotateZ(-14deg)}
+.ff-fin{position:absolute;inset:0;transform-origin:50% 50%;transform-style:preserve-3d;transform:rotateZ(calc(var(--ff-i)*45deg)) translateY(calc(-5px - var(--ff-open,0)*13px)) translateZ(calc(var(--ff-i)*1.2px + var(--ff-open,0)*9px)) rotateX(calc(12deg + var(--ff-open,0)*9deg))}
+.ff-fin-surface{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(2px 5px 3px #0005)}
+.ff-fin-signal{stroke-dasharray:9 65;stroke-dashoffset:calc(var(--ff-i)*12);opacity:.65;animation:ff-fin-flow 8s linear infinite;animation-delay:calc(var(--ff-i)*-1s)}
+.ff-core{position:absolute;inset:35%;transform:translateZ(38px);filter:drop-shadow(0 10px 8px #0006)}
+.ff-core>svg{display:block;width:100%;height:100%}
+.ff-back-orbit{position:absolute;inset:2%;border:1px solid #dcc6a225;border-radius:50%;transform:rotateX(62deg) rotateY(-18deg) translateZ(-16px);transform-style:preserve-3d}
+.ff-back-orbit-two{inset:9%;transform:rotateX(-48deg) rotateY(51deg) translateZ(-24px);border-color:#858e9a30}
+.ff-filament{position:absolute;inset:15%;border:1px solid transparent;border-top-color:#f1e8d875;border-right-color:#dcc6a22b;border-radius:50%;transform:translateZ(48px) rotateX(35deg) rotateZ(22deg);animation:ff-filament-drift 21s ease-in-out infinite alternate}
+.ff-filament-two{inset:5%;border-top-color:#dcc6a22e;border-right-color:#dcc6a210;transform:translateZ(-12px) rotateX(52deg) rotateZ(-50deg);animation:none}
+.ff-particles{position:absolute;inset:0;pointer-events:none}
+.ff-particles>i{position:absolute;width:2px;height:2px;border-radius:50%;background:#dcc6a2;box-shadow:0 0 7px #dcc6a238;opacity:.45;animation:ff-particle-drift 9s ease-in-out infinite;animation-delay:var(--ff-delay);translate:calc(var(--ff-open,0)*var(--ff-dx)) calc(var(--ff-open,0)*var(--ff-dy));transition:translate .1s linear}
+.ff-particles>i:nth-child(3n){width:1px;height:1px;opacity:.25}
+.ff-visual *{animation-play-state:paused}
+.ff-visual[data-running=true] *{animation-play-state:running}
+@keyframes ff-sculpture-drift{0%,100%{transform:translateY(2px) rotateZ(-5deg) rotateY(-5deg)}50%{transform:translateY(-5px) rotateZ(4deg) rotateY(5deg)}}
+@keyframes ff-orbit-drift{to{transform:rotate(9deg)}}
+@keyframes ff-data-flow{to{stroke-dashoffset:-484}}
+@keyframes ff-fin-flow{to{stroke-dashoffset:-148}}
+@keyframes ff-breathe{50%{opacity:.55;transform:scale(.94)}}
+@keyframes ff-particle-drift{0%,100%{transform:translate3d(0,2px,0);opacity:.3}50%{transform:translate3d(3px,-6px,0);opacity:.7}}
+@keyframes ff-filament-drift{to{transform:translateZ(48px) rotateX(42deg) rotateZ(52deg)}}
+@media(max-width:850px){.ff-sculpture{width:70%}.ff-type{font-size:5px;letter-spacing:1px}.ff-particles>i:nth-child(n+13){display:none}}
+@media(max-width:600px){.ff-sculpture{width:67%}.ff-particles>i:nth-child(n+11){display:none}}
+@media(prefers-reduced-motion:reduce){.ff-visual *{animation:none!important;transition:none!important}.ff-sculpture{transform:translate(-50%,-50%)}.ff-fin-signal{stroke-dasharray:none;opacity:.25}}

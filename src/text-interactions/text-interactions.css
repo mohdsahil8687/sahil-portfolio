@@ -1,0 +1,18 @@
+/* Only the opt-in public shell receives a pointer; form, graphic and touch behavior stays native. */
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) and (forced-colors:none){
+  .pti-enabled.pti-pointer{--pti-arrow:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='28' viewBox='0 0 24 28'%3E%3Cpath d='M3 2 19 17l-8-1-4 8Z' fill='%23f1e8d8' stroke='%230a0e15' stroke-width='1.6' stroke-linejoin='round'/%3E%3Cpath d='m5 5 10 10-5-1' fill='none' stroke='%23c8b594' stroke-width='1'/%3E%3C/svg%3E") 3 2,auto;--pti-action:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='28' viewBox='0 0 26 28'%3E%3Cpath d='M3 2 19 17l-8-1-4 8Z' fill='%23dcc6a2' stroke='%230a0e15' stroke-width='1.6' stroke-linejoin='round'/%3E%3Cpath d='M18 4h5v5m0-5-6 6' fill='none' stroke='%23f1e8d8' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") 3 2,pointer;cursor:var(--pti-arrow)}
+  .pti-enabled.pti-pointer :where(h1,h2,h3,h4,h5,h6){cursor:var(--pti-arrow)}
+  .pti-enabled.pti-pointer :where(p,.sj-tags span,.tech-tags span){cursor:text}
+  .pti-enabled.pti-pointer :where(a,a *,button,button *,[role="button"],summary){cursor:var(--pti-action)}
+  .pti-enabled.pti-pointer :where(input,textarea,[contenteditable],[role="textbox"]){cursor:text}
+  .pti-enabled.pti-pointer :where(select,option,input[type="checkbox"],input[type="radio"],input[type="range"],input[type="file"],input[type="button"],input[type="submit"],input[type="reset"]){cursor:revert}
+  .pti-enabled.pti-pointer :where(.hero-artwork,.hero-artwork *,.ra-gallery,.ra-gallery *,.mf-brand-visual,.mf-brand-visual *,[data-magnetic="off"],[data-magnetic="off"] *){cursor:auto}
+  .pti-enabled.pti-pointer :where(.ra-gallery button,.ra-gallery button *,.sj-node,.sj-node *){cursor:pointer}
+  .pti-enabled.pti-pointer :where(pre,pre *,code,code *){cursor:text}
+  .pti-enabled.pti-pointer :where(:disabled,:disabled *,[aria-disabled="true"],[aria-disabled="true"] *){cursor:not-allowed}
+  .pti-enabled.pti-pointer.pti-selecting,.pti-enabled.pti-pointer.pti-selecting *{cursor:revert}
+}
+.pti-layer{position:fixed;inset:0;z-index:2147483000;pointer-events:none!important;user-select:none;overflow:clip}
+.pti-word{position:absolute;display:block;margin:0;padding:0;border:0;white-space:pre;pointer-events:none!important;transform-origin:50% 55%;will-change:transform;transition:transform 280ms cubic-bezier(.2,.75,.25,1);backface-visibility:hidden}
+::highlight(premium-magnetic-word){color:transparent;text-shadow:none}
+@media(prefers-reduced-motion:reduce),(hover:none),(pointer:coarse),(forced-colors:active){.pti-layer{display:none}}
