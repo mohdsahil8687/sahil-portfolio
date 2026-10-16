@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 
-const MUSIC_SRC = '/audio/websiteopen/mixkit-silent-descent-614.mp3';
-const CLICK_SRC = '/audio/cursor/mixkit-fast-small-sweep-transition-166.wav';
+const MUSIC_SRC = `${import.meta.env.BASE_URL}audio/websiteopen/mixkit-silent-descent-614.mp3`;
+const CLICK_SRC = `${import.meta.env.BASE_URL}audio/cursor/mixkit-fast-small-sweep-transition-166.wav`;
 const PREFERENCE_KEY = 'sahil-sound-enabled';
 const MUSIC_VOLUME = 0.12;
 const CLICK_VOLUME = 0.23;

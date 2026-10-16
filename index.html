@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var redirect = params.get('p');
+      if (!redirect) return;
+      var query = params.get('q');
+      var base = '/sahil-portfolio/';
+      var path = redirect.replace(/^\/+/, '');
+      window.history.replaceState(null, '', base + path + (query ? '?' + query : '') + window.location.hash);
+    }());
+  </script>
     <meta name="theme-color" content="#090c12" />
     <meta name="description" content="Muhammad Sahil — Freelance web developer crafting exceptional websites, AI workflows and digital experiences. Explore selected work, learning notes and free resources." />
     <meta property="og:title" content="Muhammad Sahil — Freelance Web Developer" />

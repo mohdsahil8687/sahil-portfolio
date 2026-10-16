@@ -23,7 +23,7 @@ export default function AboutPortrait({ src }) {
       <div className="about-photo__frame">
         <img
           className="about-photo__image"
-          src={src || '/images/IMG_2202.jpg.jpeg'}
+          src={src || `${import.meta.env.BASE_URL}images/IMG_2202.jpg.jpeg`}
           alt="Muhammad Sahil portrait"
           width="1448"
           height="1086"

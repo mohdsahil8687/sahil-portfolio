@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammad Sahil — Portfolio</title>
+  </head>
+  <body>
+    <script>
+      (function () {
+        var repo = '/sahil-portfolio';
+        var path = window.location.pathname.indexOf(repo) === 0
+          ? window.location.pathname.slice(repo.length)
+          : window.location.pathname;
+        var query = window.location.search ? '&q=' + encodeURIComponent(window.location.search.slice(1)) : '';
+        window.location.replace(repo + '/?p=' + encodeURIComponent(path || '/') + query + window.location.hash);
+      }());
+    </script>
+  </body>
+</html>
